@@ -1,0 +1,45 @@
+sitemap casasistemas label="CasaSistemas" {
+    Frame label="Ground Floor" icon="groundfloor" {
+        Group item=GF_Toilet
+        Group item=GF_Kitchen
+        Group item=GF_LivingRoom
+    }
+
+    Frame label="First Floor" icon="firstfloor" {
+        Group item=FF_Bedroom
+        Group item=FF_Bathroom
+        Group item=FF_FamilyRoom
+    }
+
+    Frame {
+        Text label="Light" icon="light" {
+            Default item=GF_Toilet_Light label="Toilet"
+            Default item=GF_Kitchen_Light label="Kitchen"
+            Default item=GF_LivingRoom_Light label="Living Room"
+            Default item=FF_Bedroom_Light label="Bedroom"
+            Default item=FF_Bathroom_Light label="Bathroom"
+            Default item=FF_FamilyRoom_Light label="Family Room"
+        }
+
+        Text label="Roller Shutter" icon="rollershutter" {
+            Default item=GF_Kitchen_Shutter label="Kitchen"
+        }
+
+        Text label="Fan" icon="fan_ceiling" {
+            Default item=GF_LivingRoom_Fan label="Living Room"
+        }
+
+        Text label="Temperature" icon="temperature" {
+            Default item=GF_LivingRoom_Temperature label="Living Room"
+            Default item=FF_FamilyRoom_Temperature label="Family Room"
+        }
+
+        Text label="Air Conditioner" icon="snow" {
+            Default item=FF_FamilyRoom_AirCon label="Family Room"
+        }
+
+        Text label="Humidity" icon="humidity" {
+            Default item=FF_FamilyRoom_Humidity label="Family Room"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+sitemap our_home label="Our Home" {
+    Frame {
+        Group item=MasterBedroom
+        Group item=LivingRoom
+        Group item=Bathroom
+    }
+
+
+}
