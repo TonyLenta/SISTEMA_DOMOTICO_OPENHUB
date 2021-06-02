@@ -1,0 +1,48 @@
+rule "Initialize Humidity"
+when
+    Time cron "0/10 * * ? * * *"
+then
+ sendCommand(LivingRoom_Humidity, Math::random * 100.0);
+end
+
+rule "Initialize Temperature"
+when
+    Time cron "0/10 * * ? * * *"
+then
+ sendCommand(LivingRoom_Temperature, Math::random * 40.0);
+ sendCommand(MasterBedroom_Temperature, Math::random * 40.0);
+end
+
+rule "Initialize Illumination"
+when
+    Time cron "0/10 * * ? * * *"
+then
+ sendCommand(LivingRoom_Illumination, Math::random * 40.0);
+ sendCommand(Bathroom_Illumination, Math::random * 40.0);
+end
+
+rule "Initialize HVAC"
+when
+    System started
+then
+ sendCommand(LivingRoom_TempHVAC, 0);
+ sendCommand(MasterBedroomTemp_HAVAC, 0);
+end
+
+rule "Set modemof use"
+when
+    Item LivingRoom_Mode changed
+then
+   if (LivingRoom_Mode.state >=75) {
+       sendCommand(LivingRoom_Mode_String, 4);
+  }
+  if (LivingRoom_Mode.state >=50 && LivingRoom_Mode.state <75)  {
+       sendCommand(LivingRoom_Mode_String, 3);
+  }
+  if (LivingRoom_Mode.state >=25 && LivingRoom_Mode.state <50)  {
+       sendCommand(LivingRoom_Mode_String, 2);
+  }
+  if (LivingRoom_Mode.state <=25)  {
+       sendCommand(LivingRoom_Mode_String, 1);
+  }
+end

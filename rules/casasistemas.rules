@@ -1,0 +1,14 @@
+rule "Initialize Temperature CasaSistemas"
+when
+    Time cron "0/10 * * ? * * *"
+then
+    sendCommand(FF_FamilyRoom_Temperature, Math::random * 45.0);  
+end
+
+rule "Initialize Temperature"
+when
+    Time cron "0/10 * * ? * * *"
+then
+ sendCommand(LivingRoom_Temperature, Math::random * 40.0);
+ sendCommand(MasterBedroom_Temperature, Math::random * 40.0);
+end
