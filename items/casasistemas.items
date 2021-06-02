@@ -1,0 +1,31 @@
+Group           Home                        "CasaSistemas"      <house>                                           ["Building"]
+
+Group           GF                          "Ground Floor"      <groundfloor>     (Home)                          ["GroundFloor"]
+Group           FF                          "First Floor"       <firstfloor>      (Home)                          ["FirstFloor"]
+
+Group           GF_Toilet                   "Toilet"            <toilet>          (Home, GF)                      ["Bathroom"]
+Group           GF_Kitchen                  "Kitchen"           <kitchen>         (Home, GF)                      ["Kitchen"]
+Group           GF_LivingRoom               "Living Room"       <sofa>            (Home, GF)                      ["LivingRoom"]
+Group           FF_Bedroom                  "Bedroom"           <bedroom>         (Home, FF)                      ["Bedroom"]
+Group           FF_Bathroom                 "Bathroom"          <bath>            (Home, FF)                      ["Bathroom"]
+Group           FF_FamilyRoom               "Family Room"       <parents_2_4>     (Home, FF)                      ["Room"]
+
+Dimmer          GF_Toilet_Light             "Light"             <light>           (GF_Toilet, gLight)             ["Lighting", "Switchable"]   {channel=""}
+Dimmer          GF_Kitchen_Light            "Light"             <light>           (GF_Kitchen, gLight)            ["Lighting", "Switchable"]   {channel=""}
+Rollershutter   GF_Kitchen_Shutter          "Roller Shutter"    <rollershutter>   (GF_Kitchen, gShutter)          ["Rollershutter"]            {channel=""}
+Dimmer          GF_LivingRoom_Light         "Light"             <light>           (GF_LivingRoom, gLight)         ["Lighting", "Switchable"]   {channel=""}
+Switch          GF_LivingRoom_Fan           "Fan"               <fan_ceiling>     (GF_LivingRoom, gFan)           ["Switchable"]               {channel=""}
+Number          GF_LivingRoom_Temperature   "Temperature"       <temperature>     (GF_LivingRoom, gTemperature)   ["Temperature"]              {channel=""}
+Dimmer          FF_Bedroom_Light            "Light"             <light>           (FF_Bedroom, gLight)            ["Lighting", "Switchable"]   {channel=""}
+Dimmer          FF_Bathroom_Light           "Light"             <light>           (FF_Bathroom, gLight)           ["Lighting", "Switchable"]   {channel=""}
+Dimmer          FF_FamilyRoom_Light         "Light"             <light>           (FF_FamilyRoom, gLight)         ["Lighting", "Switchable"]   {channel=""}
+Switch          FF_FamilyRoom_AirCon        "Air Conditioner"   <snow>            (FF_FamilyRoom, gAirCon)        ["HVAC", "Switchable"]       {channel=""}
+Number          FF_FamilyRoom_Temperature   "Temperature [%.1f °C]"       <temperature>     (FF_FamilyRoom, gTemperature)   ["Temperature"]              {channel=""}
+Number          FF_FamilyRoom_Humidity      "Humidity"          <humidity>        (FF_FamilyRoom, gHumidity)      ["Humidity"]                 {channel=""}
+
+Group:Switch:OR(ON, OFF)           gLight         "Light"             <light>           (Home)   ["Lighting", "Switchable"]
+Group:Rollershutter:OR(UP, DOWN)   gShutter       "Roller Shutter"    <rollershutter>   (Home)   ["Rollershutter"]
+Group:Switch:OR(ON, OFF)           gFan           "Fan"               <fan_ceiling>     (Home)   ["Switchable"]
+Group:Number:AVG                   gTemperature   "Temperature"       <temperature>     (Home)   ["Temperature"]
+Group:Switch:OR(ON, OFF)           gAirCon        "Air Conditioner"   <snow>            (Home)   ["HVAC", "Switchable"]
+Group:Number:AVG                   gHumidity      "Humidity"          <humidity>        (Home)   ["Humidity"]

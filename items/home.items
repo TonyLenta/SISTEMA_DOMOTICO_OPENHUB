@@ -1,0 +1,43 @@
+Group    Home                     "Our Home"          <house>                                      ["Building"]
+
+Group    GF                       "Ground Floor"      <groundfloor>   (Home)                       ["GroundFloor"]
+
+Group    MasterBedroom            "Master Bedroom"    <bedroom_red>   (Home)                       ["Bedroom"]
+Group    LivingRoom               "Living Room"       <sofa>          (Home)                       ["LivingRoom"]
+Group    Bathroom                 "Bathroom"          <bath>          (Home)                       ["Bathroom"]
+
+Group:Number:AVG                  Illumination  "Avg. Room Humidity [%.1f]"         <illumination>  (Status)
+Group:Number:AVG                  Temperature   "Avg. Room Temperature [%.1f °C]"   <temperature>   (Status)
+Group:Number:AVG                  Humidity      "Avg. Room Humidity [%.1f]"         <humidity>      (Status)
+
+Dimmer   MasterBedroom_Light      "Light"             <light>         (MasterBedroom, gLight)      ["Lighting", "Switchable"]         {channel=""}
+Switch   MasterBedroom_AirCon     "Air Conditioner"   <snow>          (MasterBedroom, gAirCon)     ["HVAC", "Switchable"]             {channel=""}
+Number   MasterBedroomTemp_HAVAC  "Temperature HVAC [%.1f °C]"      <temperature>   (Temperature, MasterBedroom)  ["Temperature", "Measurement"]
+Number   MasterBedroom_Temperature   "Temperature Sensor [%.1f °C]"      <temperature>   (Temperature,MasterBedroom)  ["Temperature", "Measurement"]
+
+
+Dimmer   LivingRoom_Light1         "Light 1"             <light>         (LivingRoom, gLight)         ["Lighting", "Switchable"]         {channel=""}
+Dimmer   LivingRoom_Light2         "Light 2"             <light>         (LivingRoom, gLight)         ["Lighting", "Switchable"]         {channel=""}
+Dimmer   LivingRoom_Light3         "Light 3"             <light>         (LivingRoom, gLight)         ["Lighting", "Switchable"]         {channel=""}
+Switch   LivingRoom_Motion        "Motion Sensor"     <motion>        (LivingRoom, gMotion)        ["MotionDetector", "Switchable"]   {channel=""}
+Number   LivingRoom_TempHVAC   "Temperature HVAC [%.1f °C]"      <temperature>   (Temperature, LivingRoom)  ["Temperature", "Measurement"]
+Number   LivingRoom_Humidity      "Humidity Sensor [%.1f %%]"      <humidity>      (Humidity, LivingRoom)  ["Humidity", "Measurement"]
+Switch   LivingRoom_AirCon         "Air Conditioner"   <snow>          (LivingRoom, gAirCon)     ["HVAC", "Switchable"]             {channel=""}
+Number   LivingRoom_Temperature  "Temperature Sensor [%.1f °C]"      <temperature>   (Temperature, LivingRoom)  ["Temperature", "Measurement"]
+Number   LivingRoom_Illumination    "Indoor Illumination Sensor [%.1f %%]"   <sun>    (Illumination, LivingRoom)  ["Illumination", "Measurement"]
+Switch
+   LivingRoom_ONOFF         "ON/OFF"             <wallswitch>         (LivingRoom, gLight)         ["Lighting", "Switchable"]         {channel=""}
+Dimmer LivingRoom_Mode            "Mode of use"   <parents_1_3>     (LivingRoom) 
+Number LivingRoom_Mode_String     "Mode selected [%.1f of 4]"       <parents_1_3>     (LivingRoom, Mode)  
+   
+
+Dimmer   Bathroom_Light           "Light"             <light>         (Bathroom, gLight)           ["Lighting", "Switchable"]         {channel=""}
+Switch   Bathroom_Motion          "Motion Sensor"     <motion>        (Bathroom, gMotion)          ["MotionDetector", "Switchable"]   {channel=""}
+Number   Bathroom_Illumination    "Indoor Illumination Sensor [%.1f %%]"   <sun>    (Illumination, Bathroom)  ["Illumination", "Measurement"]
+
+
+Group:Switch:OR(ON, OFF)   gLight         "Light"             <light>         (Home)   ["Lighting", "Switchable"]
+Group:Switch:OR(ON, OFF)   gAirCon        "Air Conditioner"   <snow>          (Home)   ["HVAC", "Switchable"]
+Group:Switch:OR(ON, OFF)   gMotion        "Motion Sensor"     <motion>        (Home)   ["MotionDetector", "Switchable"]
+Group:Number:AVG           gTemperature   "Temperature"       <temperature>   (Home)   ["Temperature"]
+Group:Number:AVG           gHumidity      "Humidity"          <humidity>      (Home)   ["Humidity"]
