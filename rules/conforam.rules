@@ -1,0 +1,41 @@
+rule "Initialize Frecuencia_cardiaca CONFORAM"
+when
+    Time cron "0/3 * * ? * * *"
+then
+ sendCommand(MasterBedroom_Frecuencia_cardiaca, Math::random * 40.0);
+end
+
+rule "Initialize Movimiento CONFORAM"
+when
+    Time cron "0/3 * * ? * * *"
+then
+ sendCommand(MasterBedroom_Movimiento, Math::random * 500.0);
+end
+
+rule "Initialize Presion_ejercida CONFORAM"
+when
+    Time cron "0/3 * * ? * * *"
+then
+ sendCommand(MasterBedroom_Presion_ejercida, Math::random * 100.0);
+end
+
+rule "Initialize Sensor_externo CONFORAM"
+when
+    Time cron "0/3 * * ? * * *"
+then
+ sendCommand(MasterBedroom_Sensor_externo, Math::random * 100.0);
+end
+
+rule "Initialize Sensor_interno CONFORAM"
+when
+    Time cron "0/3 * * ? * * *"
+then
+ sendCommand(MasterBedroom_Sensor_interno, Math::random * 100.0);
+end
+
+rule "Initialize Persiana CONFORAM"
+when
+    Time cron "0/3 * * ? * * *"
+then
+ sendCommand(MasterBedroom_Persiana, Math::random * 100.0);
+end
