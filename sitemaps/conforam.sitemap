@@ -1,0 +1,13 @@
+sitemap conforam label="CONFORAM" {
+    Frame {
+        Group item=MasterBedroom
+    }
+	Frame {
+        Text label="Light" icon="light" {
+            Default item= MasterBedroom_Estado_foco label="Master Bedroom"
+        }
+        Text label="Blind" icon="blinds" {
+            Default item=MasterBedroom_Persiana label="Master Bedroom"
+        }        
+    }
+}
