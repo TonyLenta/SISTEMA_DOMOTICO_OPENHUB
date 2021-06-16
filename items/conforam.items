@@ -1,0 +1,21 @@
+Group    Home                        "CONFORAM"          <house>                                         ["Building"]
+
+Group    FF                          "First Floor"       <firstfloor>    (Home)                          ["FirstFloor"]
+
+Group    MasterBedroom               "Master Bedroom"    <bedroom_red>   (Home)                          ["Bedroom"]
+
+Dimmer   MasterBedroom_Estado_foco         "Estado de foco [%.1f Lux]"             <light>         (MasterBedroom, gLight)         ["Lighting", "Switchable"]         {channel=""}
+Dimmer   MasterBedroom_Sensor_externo        "Sensor luminosidad externo [%.1f Lux]"     <heating>        (MasterBedroom, gMotion)        ["MotionDetector", "Switchable"]   {channel=""}
+Dimmer   MasterBedroom_Persiana         "Persiana [%.1f ]"             <blinds>        (MasterBedroom, gBlind)         ["Blinds", "Switchable"]           {channel=""}
+Dimmer   MasterBedroom_Presion_ejercida       "Presion ejercida en el cochon [%.1f N/m2]"           <heating>       (MasterBedroom, gHeating)       ["HVAC"]                           {channel=""}
+Dimmer   MasterBedroom_Frecuencia_cardiaca      "Frecuencia cardiaca [%.1f Ppm]"          <humidity>      (MasterBedroom, gHumidity)      ["Humidity"]                       {channel=""}
+Dimmer   MasterBedroom_Sensor_interno        "Sensor luminosidad interno [%.1f Lux]"   <heating>          (MasterBedroom, gAirCon)        ["HVAC", "Switchable"]             {channel=""}
+Dimmer   MasterBedroom_Movimiento   "Movimiento [%.1f ]"       <motion>   (MasterBedroom, gTemperature)   ["Temperature"]                    {channel=""}
+
+Group:Switch:OR(ON, OFF)   gLight         "Light"             <light>         (Home)   ["Lighting", "Switchable"]
+Group:Switch:OR(ON, OFF)   gMotion        "Motion Sensor"     <motion>        (Home)   ["MotionDetector", "Switchable"]
+Group:Dimmer               gBlind         "Blind"             <blinds>        (Home)   ["Blinds", "Switchable"]
+Group:Number:AVG           gHeating       "Heating"           <heating>       (Home)   ["HVAC"]
+Group:Number:AVG           gHumidity      "Humidity"          <humidity>      (Home)   ["Humidity"]
+Group:Switch:OR(ON, OFF)   gAirCon        "Air Conditioner"   <snow>          (Home)   ["HVAC", "Switchable"]
+Group:Number:AVG           gTemperature   "Temperature"       <temperature>   (Home)   ["Temperature"]
